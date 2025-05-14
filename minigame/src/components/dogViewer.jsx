@@ -38,7 +38,7 @@ export default function DogViewer() {
   return (
     <div className="dog-container">
       <h1>Guess the Dog Breed 🐶</h1>
-      {dogImage && <img src={dogImage} alt="Random dog" className="dog-image" />}
+      {dogImage && <img src={dogImage} alt="Random Dog" className="dog-image" />}
       <input
         type="text"
         value={userGuess}
