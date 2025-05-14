@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './dogViewer.css';
 
 const getBreedFromUrl = (url) => {
   const parts = url.split('/');
@@ -35,25 +36,21 @@ export default function DogViewer() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-      <h1 className="text-2xl font-bold">Guess the Dog Breed 🐶</h1>
-      {dogImage && <img src={dogImage} alt="Random dog" className="w-full rounded" />}
+    <div className="dog-container">
+      <h1>Guess the Dog Breed 🐶</h1>
+      {dogImage && <img src={dogImage} alt="Random dog" className="dog-image" />}
       <input
         type="text"
         value={userGuess}
         onChange={(e) => setUserGuess(e.target.value)}
         placeholder="Your guess..."
-        className="border rounded p-2 w-full"
+        className="input"
       />
-      <div className="space-x-2">
-        <button onClick={handleGuess} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Guess
-        </button>
-        <button onClick={fetchDogImage} className="bg-gray-300 px-4 py-2 rounded">
-          New Dog
-        </button>
+      <div className="buttons">
+        <button onClick={handleGuess}>Guess</button>
+        <button onClick={fetchDogImage}>New Dog</button>
       </div>
-      {result && <p className="mt-4 text-lg">{result}</p>}
+      {result && <p className="result">{result}</p>}
     </div>
   );
 }
